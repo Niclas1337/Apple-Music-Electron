@@ -54,11 +54,11 @@
     "youtube-search-without-api-key": "github:vapormusic/youtube-search"
   },
   "devDependencies": {
-    "electron": "https://github.com/castlabs/electron-releases.git",
-    "electron-builder": "^22.13.1",
+    "electron": "git+https://github.com/castlabs/electron-releases.git",
+    "electron-builder": "^23.0.2",
     "electron-webpack": "^2.8.2",
     "musickit-typescript": "^1.2.4",
-    "webpack": "~5.65.0"
+    "webpack": "~5.74.0"
   },
   "fileAssociations": [
     {
@@ -81,9 +81,9 @@
     }
   ],
   "build": {
-    "electronVersion": "15.3.2",
+    "electronVersion": "19.0.13",
     "electronDownload": {
-      "version": "15.3.2-wvvmp",
+      "version": "19.0.13+wvcus",
       "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
     },
     "appId": "apple-music",
