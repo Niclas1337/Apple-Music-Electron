@@ -1,4 +1,4 @@
-const {app, Menu, Notification, TouchBar, BrowserWindow} = require("electron"),
+const {app, Menu, components, Notification, TouchBar, BrowserWindow} = require("electron"),
     {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar,
     {join} = require("path"),
     windowStateKeeper = require("electron-window-state"),
@@ -165,47 +165,47 @@ module.exports = {
 
         if (process.platform === 'win32') { // Set the Windows Thumbnail Toolbar Buttons
             if (app.media.playParams.id !== 'no-id-found') {
-                app.win.setThumbarButtons([
-                    {
-                        tooltip: 'Previous',
-                        icon: app.ame.utils.icons.previousTrack,
-                        click() {
-                            app.ame.utils.media.previousTrack()
-                        }
-                    },
-                    {
-                        tooltip: app.media.status ? 'Pause' : 'Play',
-                        icon: app.media.status ? app.ame.utils.icons.pause : app.ame.utils.icons.play,
-                        click() {
-                            app.ame.utils.media.pausePlay()
-                        }
-                    },
-                    {
-                        tooltip: 'Next',
-                        icon: app.ame.utils.icons.nextTrack,
-                        click() {
-                            app.ame.utils.media.nextTrack()
-                        }
-                    }
-                ]);
+                // app.win.setThumbarButtons([
+                //     {
+                //         tooltip: 'Previous',
+                //         icon: app.ame.utils.icons.previousTrack,
+                //         click() {
+                //             app.ame.utils.media.previousTrack()
+                //         }
+                //     },
+                //     {
+                //         tooltip: app.media.status ? 'Pause' : 'Play',
+                //         icon: app.media.status ? app.ame.utils.icons.pause : app.ame.utils.icons.play,
+                //         click() {
+                //             app.ame.utils.media.pausePlay()
+                //         }
+                //     },
+                //     {
+                //         tooltip: 'Next',
+                //         icon: app.ame.utils.icons.nextTrack,
+                //         click() {
+                //             app.ame.utils.media.nextTrack()
+                //         }
+                //     }
+                // ]);
             } else {
-                app.win.setThumbarButtons([
-                    {
-                        tooltip: 'Previous',
-                        icon: app.ame.utils.icons.inactive.previousTrack,
-                        flags: ["disabled"]
-                    },
-                    {
-                        tooltip: 'Play',
-                        icon: app.ame.utils.icons.inactive.play,
-                        flags: ["disabled"]
-                    },
-                    {
-                        tooltip: 'Next',
-                        icon: app.ame.utils.icons.inactive.nextTrack,
-                        flags: ["disabled"]
-                    }
-                ]);
+                // app.win.setThumbarButtons([
+                //     {
+                //         tooltip: 'Previous',
+                //         icon: app.ame.utils.icons.inactive.previousTrack,
+                //         flags: ["disabled"]
+                //     },
+                //     {
+                //         tooltip: 'Play',
+                //         icon: app.ame.utils.icons.inactive.play,
+                //         flags: ["disabled"]
+                //     },
+                //     {
+                //         tooltip: 'Next',
+                //         icon: app.ame.utils.icons.inactive.nextTrack,
+                //         flags: ["disabled"]
+                //     }
+                // ]);
             }
         } else if (process.platform === 'darwin') { // Set the macOS Touchbar
             if (!app.media || app.media.playParams.id === 'no-id-found') return;
@@ -304,8 +304,8 @@ module.exports = {
             frame: (process.platform !== 'win32' && !(app.cfg.get('visual.frameType') === 'mac' || app.cfg.get('visual.frameType') === 'mac-right')),
             title: app.getName(),
             resizable: true,
-            show: false,
-            opacity: 0,
+            show: true,
+            opacity: 1,
             // Enables DRM
             webPreferences: {
                 plugins: true,

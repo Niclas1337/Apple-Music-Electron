@@ -7,6 +7,7 @@ const {
         Notification,
         BrowserWindow,
         systemPreferences,
+        components,
         nativeTheme,
         clipboard
     } = require('electron'),
@@ -86,12 +87,12 @@ const handler = {
             console.verbose('[handler] playbackStateDidChange received.');
             app.media = a;
 
-            app.ame.win.SetButtons()
-            app.ame.win.SetTrayTooltip(a)
-            app.ame.discord.updateActivity(a)
-            app.ame.lastfm.scrobbleSong(a)
-            app.ame.lastfm.updateNowPlayingSong(a)
-            app.ame.mpris.updateState(a)
+            // app.ame.win.SetButtons()
+            // app.ame.win.SetTrayTooltip(a)
+            // app.ame.discord.updateActivity(a)
+            // app.ame.lastfm.scrobbleSong(a)
+            // app.ame.lastfm.updateNowPlayingSong(a)
+            // app.ame.mpris.updateState(a)
         });
     },
 
@@ -129,8 +130,8 @@ const handler = {
         let incognitoNotification;
         app.win.webContents.on('did-finish-load', () => {
             console.verbose('[did-finish-load] Completed.');
-            app.ame.load.LoadOneTimeFiles();
-            app.win.webContents.setZoomFactor(parseFloat(app.cfg.get("visual.scaling")))
+            // app.ame.load.LoadOneTimeFiles();
+            // app.win.webContents.setZoomFactor(parseFloat(app.cfg.get("visual.scaling")))
             if (app.cfg.get('general.incognitoMode') && !incognitoNotification) {
                 incognitoNotification = new Notification({
                     title: 'Incognito Mode Enabled',

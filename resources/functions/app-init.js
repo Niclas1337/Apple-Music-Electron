@@ -1,4 +1,4 @@
-const {app, protocol, dialog} = require("electron"),
+const {app, components, protocol, dialog} = require("electron"),
     {join, resolve} = require("path"),
     {existsSync, createReadStream, unlink, rmSync} = require("fs"),
     Store = require('electron-store');
@@ -123,7 +123,9 @@ module.exports = () => {
     app.cfg.watch = true;
     app.isQuiting = false;
 
-    app.whenReady().then(() => {
+    app.whenReady().then(async () => {
+        await components.whenReady();
+        console.log('components ready:', components.status());
         protocol.registerFileProtocol('themes', (request, callback) => {
             const url = request.url.substr(7)
             callback({

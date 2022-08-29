@@ -17,12 +17,12 @@ const SplashScreen = {
             icon: join(__dirname, `../icons/icon.ico`),
             width: 300,
             height: 300,
-            resizable: false,
+            resizable: true,
             show: true,
             center: true,
-            transparent: true,
+            transparent: false,
             title: app.getName(),
-            frame: false,
+            frame: true,
             thickFrame: false,
             skipTaskbar: true,
             alwaysOnTop: true,
@@ -32,7 +32,7 @@ const SplashScreen = {
             }
         })
         this.win.show()
-        this.win.loadFile('./resources/splash/index.html')
+        this.win.loadURL("https://shaka-player-demo.appspot.com/");
         this.win.on("closed", () => {
             this.win = null
         })
