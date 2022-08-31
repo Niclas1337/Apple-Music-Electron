@@ -876,13 +876,13 @@ const handler = {
             let ao;
             const portAudio = require('naudiodon');
 
-            console.log(portAudio.getDevices());
+            // console.log(portAudio.getDevices());
 
             ipcMain.on('getAudioDevices', function (_event) {
-                for (let id = 0; id < portAudio.getDevices().length; id++) {
-                    if (portAudio.getDevices()[id].maxOutputChannels > 0)
-                        app.win.webContents.executeJavaScript(`console.log('id:','${id}','${portAudio.getDevices()[id].name}','outputChannels:','${portAudio.getDevices()[id].maxOutputChannels}','preferedSampleRate','${portAudio.getDevices()[id].defaultSampleRate}','nativeFormats','${portAudio.getDevices()[id].hostAPIName}')`);
-                }
+                // for (let id = 0; id < portAudio.getDevices().length; id++) {
+                //     if (portAudio.getDevices()[id].maxOutputChannels > 0)
+                //         app.win.webContents.executeJavaScript(`console.log('id:','${id}','${portAudio.getDevices()[id].name}','outputChannels:','${portAudio.getDevices()[id].maxOutputChannels}','preferedSampleRate','${portAudio.getDevices()[id].defaultSampleRate}','nativeFormats','${portAudio.getDevices()[id].hostAPIName}')`);
+                // }
             })
 
             ipcMain.on('enableExclusiveAudio', function (event, id) {
