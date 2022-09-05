@@ -71,8 +71,8 @@ module.exports = {
         if (!win) return;
 
         app.storefront = app.cfg.get('general.storefront');
-        const urlBase = app.cfg.get('advanced.useBetaSite') ? 'https://music.apple.com/de' : 'https://music.apple.com/de' + app.cfg.get('general.storefront'),
-            urlFallback = `https://music.apple.com/de`;
+        const urlBase = app.cfg.get('advanced.useBetaSite') ? 'https://music.apple.com/' : 'https://music.apple.com/' + app.cfg.get('general.storefront'),
+            urlFallback = `https://music.apple.com/`;
 
         ipcMain.once('userAuthorized', (e, args) => {
             app.isAuthorized = true
